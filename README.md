@@ -14,7 +14,7 @@ chmod +x restakingRizon.sh
 
 3. Edit this script with your credentials -> change these parameters: DELEGATOR='Your delegator address' ;
 VALIDATOR='Your validator address' ;
-PASWD='password from cli' ;
+PASWD='pass phrase from cli' ;
 DELAY=3600 #in secs - how often restart the script ;
 ACC_NAME=YourWalleName 
  
