@@ -1,6 +1,6 @@
 # ReStaking script - auto claiming and delegating rewards for Rizon Network
 
-1. Download the script from this repository:
+1. Download the script from my repository:
 
 ```bash
 wget https://raw.githubusercontent.com/cybernekit/scriptsCosmoSDK/main/restakingRizon.sh
@@ -12,11 +12,11 @@ wget https://raw.githubusercontent.com/cybernekit/scriptsCosmoSDK/main/restaking
 chmod +x restakingRizon.sh
 ```
 
-3. Edit this script with your credentials -> DELEGATOR='Your delegator address'
-VALIDATOR='Your validator address'
-PASWD='password from cli'
-DELAY=3600 #in secs - how often restart the script 
-ACC_NAME=YourWalleName
+3. Edit this script with your credentials -> change these parameters: DELEGATOR='Your delegator address' ;
+VALIDATOR='Your validator address' ;
+PASWD='password from cli' ;
+DELAY=3600 #in secs - how often restart the script ;
+ACC_NAME=YourWalleName 
  
  ```bash
 nano restakingRizon.sh
