@@ -57,7 +57,7 @@ bash restakingRizon.sh
  PASWD = 'пароль от cli'; 
  ACCNAME = YourWalleName
 
-* Обновления groot-011
+# Обновления groot-011
    Создаем отдельное окно в TMUX для запуска скрипта
 ```bash
     # tmux new-session -s rizonscript
