@@ -34,12 +34,11 @@ bash restakingRizon.sh
 6. Enjoy it :)
 
 ```bash
-
-
-
-
+.
+.
+.
 ```
-RUS README.md 
+***RUS***  
 Скачиваем скрипт 
 ```bash
  # wget https://github.com/5PARM1T/scriptsCosmoSDK/blob/main/restakingRizon.sh 
@@ -59,11 +58,12 @@ RUS README.md
  ACCNAME = YourWalleName
 
 * Обновления groot-011
-    Создаем отдельное окно в TMUX для запуска скрипта
+   Создаем отдельное окно в TMUX для запуска скрипта
 ```bash
     # tmux new-session -s rizonscript
 ```
-    Запускаем сам скрипт и расслабляемся
+   
+   Запускаем сам скрипт и расслабляемся
 ```bash
     # bash restakingRizon.sh
 ```
