@@ -32,3 +32,27 @@ nano restakingRizon.sh
 bash restakingRizon.sh
 ```
 6. Enjoy it :)
+
+
+
+
+
+
+RUS README.md 
+Скачиваем скрипт 
+ # wget https://github.com/5PARM1T/scriptsCosmoSDK/blob/main/restakingRizon.sh
+Даем нужные разрешения
+ # chmod +x restakingRizon.sh
+Открываем в nano скачанный файл
+ # nano restakingRizon.sh
+Редактируем файл внося нужные изменения: измените эти параметры: 
+ DELEGATOR = 'Ваш адрес делегата: rizon1........'; 
+ VALIDATOR = 'Ваш адрес валидатора: rizonvaloper1.......'; 
+ PASWD = 'пароль от cli'; 
+ ACCNAME = YourWalleName
+
+# Обновления groot-011
+    Создаем отдельное окно в TMUX для запуска скрипта
+    # tmux new-session -s rizonscript
+    Запускаем сам скрипт и расслабляемся
+    # bash restakingRizon.sh
