@@ -1,31 +1,42 @@
 #!/bin/bash
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
-DELEGATOR='Your delegator address'
-VALIDATOR='Your validator address'
-PASWD='password from cli'
-DELAY=3600 #in secs - how often restart the script 
-ACC_NAME=YourWalleName
+GREEN_COLOR='\033[0;32m'
+RED_COLOR='\033[0;31m'
+WITHOU_COLOR='\033[0m'
+DELEGATOR_ADDRESS='YOUR_rizon1......ADDRESS'
+VALIDATOR_ADDRESS='YOUR_rizonvaloper1ADDRESS'
+PWD='YOUR_PASSWORD'
+DELAY=3200 #in secs - how often restart the script 
+ACC_NAME='YOU_WALLET_WITHOUT_QUOTES' #example: = ACC_NAME=wallet_qwwq_54
 NODE=http://localhost:26657 #change it only if you use another rpc port of your node
 
 for (( ;; )); do
-        BAL=$(rizond query bank balances ${DELEGATOR} --node ${NODE});
-        echo -e "BALANCE: ${GREEN}${BAL}${NC} uatolo\n"
-        echo -e "Claim rewards\n"
-        echo -e "${PASWD}\n${PASWD}\n" | rizond tx distribution withdraw-rewards ${VALIDATOR} --chain-id groot-07 --from ${ACC_NAME} --node ${NODE} --commission -y --fees 5000uatolo
+        echo -e "Get reward from Delegation"
+        echo -e "${PWD}\ny\n" | rizond tx distribution withdraw-all-rewards --from ${ACC_NAME} --fees 20uatolo --chain-id groot-011 --yes
         for (( timer=10; timer>0; timer-- ))
         do
-                printf "* sleep for ${RED}%02d${NC} sec\r" $timer
+                printf "* sleep for ${RED_COLOR}%02d${WITHOUT_COLOR} sec\r" $timer
                 sleep 1
         done
-        BAL=$(rizond query bank balances ${DELEGATOR} --node ${NODE} -o json | jq -r '.balances | .[].amount');
-        echo -e "BALANCE: ${GREEN}${BAL}${NC} uatolo\n"
-        echo -e "Stake ALL\n"
-        echo -e "${PASWD}\n${PASWD}\n" | rizond tx staking delegate ${VALIDATOR} ${BAL}uatolo --chain-id groot-07 --from ${ACC_NAME} --node ${NODE} -y --fees 5000uatolo
+
+        BAL=$(rizond query bank balances ${DELEGATOR_ADDRESS} --node ${NODE});
+        # BAL=$(($BAL -100000))
+        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} uatolo\n"
+        echo -e "Claim rewards\n"
+        echo -e "${PWD}\n${PWD}\n" | rizond tx distribution withdraw-rewards ${VALIDATOR_ADDRESS} --chain-id groot-011 --from ${ACC_NAME} --node ${NODE} --commission -y --fees 1000uatolo
+        for (( timer=10; timer>0; timer-- ))
+        do
+                printf "* sleep for ${RED_COLOR}%02d${WITHOU_COLOR} sec\r" $timer
+                sleep 1
+        done
+        BAL=$(rizond query bank balances ${DELEGATOR_ADDRESS} --node ${NODE} -o json | jq -r '.balances | .[].amount');
+        BAL=$(($BAL -100000))
+        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} uatolo\n"
+        echo -e "Stake ALL 11111\n"
+        echo -e "${PWD}\n${PWD}\n" | rizond tx staking delegate ${VALIDATOR_ADDRESS} ${BAL}uatolo --chain-id groot-011 --from ${ACC_NAME} --node ${NODE} -y --fees 1000uatolo
         for (( timer=${DELAY}; timer>0; timer-- ))
         do
-                printf "* sleep for ${RED}%02d${NC} sec\r" $timer
+                printf "* sleep for ${RED_COLOR}%02d${WITHOU_COLOR} sec\r" $timer
                 sleep 1
-        done
+        done       
+
 done
