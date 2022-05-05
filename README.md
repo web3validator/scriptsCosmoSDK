@@ -1,15 +1,15 @@
-# ReStaking script - auto claiming and delegating rewards for Rizon Network
+# ReStaking script - auto claiming and delegating rewards
 
 1. Download the script from my repository:
 
 ```bash
-wget https://github.com/5PARM1T/scriptsCosmoSDK/blob/main/restakingRizon.sh
+wget <scripts link>
 ```
 
 2. Give the permissions to this file:
 
 ```bash
-chmod +x restakingRizon.sh
+chmod +x script.sh
 ```
 
 3. Edit this script with your credentials -> change these parameters: DELEGATOR='Your delegator address' ;
@@ -19,17 +19,17 @@ DELAY=3600 #in secs - how often restart the script ;
 ACC_NAME=YourWalleName 
  
  ```bash
-nano restakingRizon.sh
+nano script.sh
 ```
 4. Open the screen or tmux session:
  
  ```bash
-# tmux new-session -s rizonscript
+# tmux new-session -s script
 ```
 5. Run auto claiming and delegating rewards:
 
  ```bash
-bash restakingRizon.sh
+bash script.sh
 ```
 6. Enjoy it :)
 
