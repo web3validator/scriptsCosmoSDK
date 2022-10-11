@@ -18,7 +18,7 @@ for (( ;; )); do
                 sleep 1
         done
 
-        BAL=$(rizond query bank balances ${DELEGATOR_ADDRESS} --node ${NODE});
+        BAL=$(rebusd query bank balances ${DELEGATOR_ADDRESS} --node ${NODE});
         # BAL=$(($BAL -100000))
         echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} arebus\n"
         echo -e "Claim rewards\n"
