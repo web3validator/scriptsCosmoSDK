@@ -2,9 +2,9 @@
 GREEN_COLOR='\033[0;32m'
 RED_COLOR='\033[0;31m'
 WITHOU_COLOR='\033[0m'
-DELEGATOR_ADDRESS='rebus17xkn5uj7nmdgz8d3t6k4pg44d9j7xdh2pgnk3l'
-VALIDATOR_ADDRESS='rebusvaloper17xkn5uj7nmdgz8d3t6k4pg44d9j7xdh2ll0fyu'
-PWD='12345678'
+DELEGATOR_ADDRESS='rebus1....address'
+VALIDATOR_ADDRESS='rebusvaloper....adress'
+PWD=YourPassword'
 DELAY=7200 #in secs - how often restart the script 
 ACC_NAME='web34ever' #example: = ACC_NAME=wallet_qwwq_54
 NODE=http://localhost:33657 #change it only if you use another rpc port of your node
