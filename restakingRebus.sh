@@ -20,7 +20,7 @@ for (( ;; )); do
 
         BAL=$(rizond query bank balances ${DELEGATOR_ADDRESS} --node ${NODE});
         # BAL=$(($BAL -100000))
-        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} uatolo\n"
+        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} arebus\n"
         echo -e "Claim rewards\n"
         echo -e "${PWD}\n${PWD}\n" | rebusd tx distribution withdraw-rewards ${VALIDATOR_ADDRESS} --chain-id reb_1111-1 --from ${ACC_NAME} --node ${NODE} --commission -y --fees 10000arebus
         for (( timer=10; timer>0; timer-- ))
@@ -30,7 +30,7 @@ for (( ;; )); do
         done
         BAL=$(rebusd query bank balances ${DELEGATOR_ADDRESS} --node ${NODE} -o json | jq -r '.balances | .[].amount');
         BAL=$(($BAL -1000000))
-        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} uatolo\n"
+        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} arebus\n"
         echo -e "Stake ALL 11111\n"
         echo -e "${PWD}\n${PWD}\n" | rebusd tx staking delegate ${VALIDATOR_ADDRESS} ${BAL}arebus --chain-id reb_1111-1 --from ${ACC_NAME} --node ${NODE} -y --gas-prices 0.01arebus --gas 3000000
         for (( timer=${DELAY}; timer>0; timer-- ))
