@@ -7,6 +7,7 @@ VALIDATOR_ADDRESS='bostromvaloper1....'
 PWD='password'
 DELAY=7200 #in secs - how often restart the script 
 ACC_NAME='papsan' #example: = ACC_NAME=wallet
+NODE=https://rpc.bostrom.cybernode.ai:443
 
 for (( ;; )); do
         echo -e "Claim rewards\n"
