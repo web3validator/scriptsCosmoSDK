@@ -10,17 +10,17 @@ ACC_NAME='papsan' #example: = ACC_NAME=wallet
 
 for (( ;; )); do
         echo -e "Claim rewards\n"
-        echo -e "${PWD}\n${PWD}\n" | docker exec -ti bostrom cyber tx distribution withdraw-rewards ${VALIDATOR_ADDRESS} --chain-id bostrom --from ${ACC_NAME} --commission -y --fees 10000boot
+        echo -e "${PWD}\n${PWD}\n" | cyber tx distribution withdraw-rewards ${VALIDATOR_ADDRESS} --chain-id bostrom --from ${ACC_NAME} --commission -y --node ${NODE} --fees 10000boot
         for (( timer=4; timer>0; timer-- ))
         do
                 printf "* sleep for ${RED_COLOR}%02d${WITHOU_COLOR} sec\r" $timer
                 sleep 1
         done
-        BAL=$(docker exec -ti bostrom cyber query bank balances ${DELEGATOR_ADDRESS}  -o json | jq -r '.balances | .[].amount');
+        BAL=$(cyber query bank balances ${DELEGATOR_ADDRESS} --node ${NODE} -o json | jq -r '.balances | .[].amount');
         BAL=$(echo "$BAL - 100000000"|bc)
         echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} boot\n"
         echo -e "Stake ALL \n"
-        echo -e "${PWD}\n${PWD}\n" | docker exec -ti bostrom cyber tx staking delegate ${VALIDATOR_ADDRESS} ${BAL}boot --chain-id bostrom --from ${ACC_NAME} -y --gas-prices 0.01arebus --gas 3000000
+        echo -e "${PWD}\n${PWD}\n" | cyber tx staking delegate ${VALIDATOR_ADDRESS} ${BAL}boot --chain-id bostrom --from ${ACC_NAME} -y --node ${NODE} --gas-prices 0.01arebus --gas 3000000
         for (( timer=${DELAY}; timer>0; timer-- ))
         do
                 printf "* sleep for ${RED_COLOR}%02d${WITHOU_COLOR} sec\r" $timer
@@ -28,3 +28,4 @@ for (( ;; )); do
         done
 
 done
+
