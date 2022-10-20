@@ -6,7 +6,7 @@ DELEGATOR_ADDRESS='bostrom1...'
 VALIDATOR_ADDRESS='bostromvaloper1....'
 PWD='password'
 DELAY=7200 #in secs - how often restart the script 
-ACC_NAME='papsan' #example: = ACC_NAME=wallet
+ACC_NAME='accountName' #example: = ACC_NAME=wallet
 NODE=https://rpc.bostrom.cybernode.ai:443
 
 for (( ;; )); do
